@@ -4,10 +4,45 @@ Samsung Galaxy S Smartphone Data CodeBookMay 2014
 
 
 ## I. Introduction
-This file describes the data, the variables, and the work that has been performed to clean up the data.
+This file describes the data, the variables, and the work that has been performed to clean up the borrowed dataset of Samsung Galaxy S Smartphone data.
 
 ## II. Data Set Description
-The borrowed dataset is collected from an experiment, which is carried out with a group of 30 volunteers of 19-48 years. Each person performed six activities (WALKING, WALKING UPSTAIRS, WALKING DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, the researchers captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments were video-recorded to label the data manually. The obtained dataset then was randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
+The borrowed dataset was originally collected from an experiment, which was carried out with a group of 30 volunteers of 19-48 years. Wearing Samsung Galaxy S II smartphone on the waist, each participant performed six activities such as walking, walking upstairs, walking downstairs, sitting, standing, and laying. The phone's embedded accelerometer and gyroscope captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments were video-recorded to label the data manually. The obtained dataset then was randomly partitioned into two sets, where 70% of the participants was selected for generating the training data and 30% the test data. 
+
+### Files included in the original dataset
+The original dataset, which was in the form of a compression file, was downloaded from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.  The extracted dataset folder ("UCI HAR Dataset") contains four text files and two sub-directory folders as shown below:
+
+[UCI HAR Dataset]
+<dd> -- activity_labels.txt </dd>
+<dd> -- feactures_info.txt </dd>
+<dd> -- features.txt </dd>
+<dd> -- README.txt </dd>
+<dd> -- [test]      (sub-directory folder)  </dd>
+<dd> -- [train]     (sub-directory folder)  </dd>
+
+The 'activity_labels.txt' file links the class labels with their activity name.
+The 'features_info.txt' file provides information about the variables used on the feature vector.
+The 'features.txt' file lists all features(variables).
+
+In each sub-directory folder of 'test' and 'train', there are three text files and one sub_folder:
+
+[test]    
+<dd> -- subject_test.txt </dd>
+<dd> -- X_test.txt </dd>
+<dd> -- y_test.txt </dd>
+<dd> -- [Inertial Signals]      (sub_folder) </dd>
+[train]       
+<dd> -- subject_train.txt </dd>
+<dd> -- X_train.txt </dd>
+<dd> -- y_train.txt </dd>
+<dd> -- [Inertial Signals]      (sub_folder) </dd>
+
+The 'subject_test.txt' and 'subject_train.txt' files provide information regarding subjects. Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
+The 'X_test.txt' and 'X_train.txt' files contain the test and training set data.
+The 'y_test.txt' and 'y_train.txt' files conatin the test and training data labels.
+The 'Inertial Signals/total_acc_x_train.txt' file contains the acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis.
+The 'Inertial Signals/body_acc_x_train.txt' file contains the body acceleration signal obtained by subtracting the gravity from the total acceleration.
+The 'Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. 
 
@@ -19,23 +54,8 @@ Each record in the original dataset contained the following information:
 - Its activity label
 - An identifier of the subject who carried out the experiment
 
-### Files included in the original dataset
-
-- 'features_info.txt': Shows information about the variables used on the feature vector.
-- 'features.txt': List of all features.
-- 'activity_labels.txt': Links the class labels with their activity name.
-- 'train/X_train.txt': Training set.
-- 'train/y_train.txt': Training labels.
-- 'test/X_test.txt': Test set.
-- 'test/y_test.txt': Test labels.
-- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
-- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis.
-- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration.
-- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
-
-
 ## III. Variables
-The variables in the dataset come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz.
+The variables in the original dataset come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz.
 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag).
 
@@ -49,51 +69,50 @@ For the data cleaning, a R script is created. This 'run_analysis.R' script conta
 
 <table border=1>
 <tr>
-<th>Function Name</th><th>Task</th><th>Files Used</th><th>Output File</th><th>Command</th>
+<th>Function Name</th><th>Goal/Task</th><th width="15%">Files Used</th><th>Output File</th><th>Command</th>
 </tr>
 <tr>
 <th valign="top">SimpleMerge</th>
-<td valign="top">Merge the training and the test sets into one data set.<br>
-Subject ID (subject_test.txt and subject_train.txt) is merged as the first column of the merged data set.<br>
-Activity type (y_test.txt and y_train.txt) is merged as the second column of the merged data set. <br>
-Activity type (y_test.txt and y_train.txt) is merged as the second column of the merged data set.</td>
+<td valign="top"><li>Merge the training and the test sets into one data set.</li>
+<li>Subject ID (subject_test.txt and subject_train.txt) is merged as the first column of the merged data set.</li>
+<li>Activity type (y_test.txt and y_train.txt) is merged as the second column of the merged data set.</li></td>
 <td valign="top">1) X_test.txt<br>2) y_test.txt<br>3) X_train.txt<br>4) y_train.txt<br>5) subject_test.txt <br>6) subject_train.txt</td>
 <td valign="top">simpleMerge.txt</td>
 <td valign="top">simpleMerge()</td>
 </tr>
 <tr>
 <th valign="top">desVarMerge</th>
-<td valign="top">Label the data set with descriptive variable names.<br>
-Descriptive variable names are copied from the features.txt file.<br>
-At the time of this function call, if simpleMerge.txt does not exist, this function calls the simpleMerge() function and creates the simpleMerge.txt file.  <br>
-If the simpleMerge.txt file does exist, however, this function reads the file and replace the variable names (column headings) descriptive variable names. </td>
+<td valign="top"><li>Label the data set with descriptive variable names.</li>
+<li>Descriptive variable names are copied from the features.txt file.</li>
+<li>At the time of this function call, if simpleMerge.txt does not exist, this function calls the simpleMerge() function and creates the simpleMerge.txt file.  </li>
+<li>If the simpleMerge.txt file does exist, however, this function reads the file and replace the variable names (column headings) descriptive variable names. </li></td>
 <td valign="top">1) features.txt <br> 2) simpleMerge.txt</td>
 <td valign="top">desVarMerge.txt</td>
 <td valign="top">desVarMerge()</td>
 </tr>
 <tr>
 <th valign="top">desActMerge</th>
-<td valign="top">Replace activity numbers with descriptive activity names.<br>
-Descriptive activity information is copied from the activity_labels.txt file.<br>
-At the time of this function call, if desVarMerge.txt does not exist, this function calls the desVarMerge() function and creates the desVarMerge.txt file.<br>
-If the desVarMerge.txt file does exist, however, this function reads the file and replace the values of the activity column from numeric code to descriptive activity types. </td>
+<td valign="top"><li>Replace activity numbers with descriptive activity names.</li>
+<li>Descriptive activity information is copied from the activity_labels.txt file.</li>
+<li>At the time of this function call, if desVarMerge.txt does not exist, this function calls the desVarMerge() function and creates the desVarMerge.txt file.</li>
+<li>If the desVarMerge.txt file does exist, however, this function reads the file and replace the values of the activity column from numeric code to descriptive activity types.</li> </td>
 <td valign="top">1) activity_labels.txt <br> 2) desVarMerge.txt</td>
 <td valign="top">desActMerge.txt</td>
 <td valign="top">desActMerge()</td>
 </tr>
 <tr>
 <th valign="top">meanStdMerge</th>
-<td valign="top">Extract only the measurments on the mean and standard deviation for each measurement.<br>
-At the time of this function call, if desVarMerge.txt does not exist, this function calls the desVarMerge() function and creates the desVarMerge.txt file. <br>
-If the desVarMerge.txt file does exist, however, this function reads the file, pattern matches the column names for mean and standard deviation using 'grepl', and subset only the matched columns.</td>
+<td valign="top"><li>Extract only the measurments on the mean and standard deviation for each measurement.</li>
+<li>At the time of this function call, if desVarMerge.txt does not exist, this function calls the desVarMerge() function and creates the desVarMerge.txt file. </li>
+<li>If the desVarMerge.txt file does exist, however, this function reads the file, pattern matches the column names for mean and standard deviation using 'grepl', and subset only the matched columns.</li></td>
 <td valign="top">desActMerge.txt</td>
 <td valign="top">meanStdMerge.txt</td>
 <td valign="top">meanStdMerge()</td>
 </tr>
 <th valign="top">avgMerge</th>
-<td valign="top">Create a new tidy data set with the average of each variable for each activity and each subject.<br>
-At the time of this function call, if desVarMerge.txt does not exist, this function calls the desVarMerge() function and creates the desVarMerge.txt file.<br>
-If the desVarMerge.txt file does exist, however, this function reads the file, loop through each subject and each activity type, and calculate average value of each variable in the dataset (of course, excluding the subject id and activity type column).</td>
+<td valign="top"><li>Create a new tidy data set with the average of each variable for each activity and each subject.</li>
+<li>At the time of this function call, if desVarMerge.txt does not exist, this function calls the desVarMerge() function and creates the desVarMerge.txt file.</li>
+<li>If the desVarMerge.txt file does exist, however, this function reads the file, loop through each subject and each activity type, and calculate average value of each variable in the dataset (of course, excluding the subject id and activity type column).</li></td>
 <td valign="top">1) activity_labels.txt <br> 2) desVarMerge.txt</td>
 <td valign="top">avgMerge.txt</td>
 <td valign="top">avgMerge()</td>
@@ -106,7 +125,7 @@ There exists no missing data.
 ## VI. Variable Details
 When fully merged with descriptive variable names and activity names, the file contains a total of 563 variables. The following lists the variable column location, variable name, length of variable, and description if not explained previously in this document. 
 
-#### While the instructor indicated in his video lectures that the variable names should not have upper case letters, underscores, hypens, and any other special characters, it seemed to me that using only lowercase letters wityout any special characters can make the variables in the project much less readable. Thus, the original variable names are kept for the project.
+<strong><font color="blue">While the instructor indicated in his video lectures that the variable names need to be all lowercase letters without any special characters, it seemed to me that the original dataset's variable names (combination of Upper case and lower case, with special characters like hypens and commas) make the variables in the project quite more readable. Thus, the original variable names are kept for the project.</font></strong>
 
 Variable Column Location | Variable Name | Class | Length | Description
 --- | --- | --- | --- | ---
