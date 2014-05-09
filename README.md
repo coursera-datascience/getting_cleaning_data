@@ -23,6 +23,7 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 ## Functions
 The code includes five function calls that clean the original dataset in different ways:
+
 <table border=1>
 <tr>
 <th>Function Name</th><th>Goal/Task</th><th width="15%">Files Used</th><th>Output File</th><th>Command</th>
@@ -33,7 +34,7 @@ The code includes five function calls that clean the original dataset in differe
 1) Subject ID (subject_test.txt and subject_train.txt) is merged as the first column of the merged data set.<br>
 2) Activity type (y_test.txt and y_train.txt) is merged as the second column of the merged data set.</td>
 <td valign="top">1) X_test.txt<br>2) y_test.txt<br>3) X_train.txt<br>4) y_train.txt<br>5) subject_test.txt <br>6) subject_train.txt</td>
-<td valign="top">simpleMerge.txt</td>
+<td valign="top">simpleMerge.txt<br> (563 variables) <br> (10299 cases)</td>
 <td valign="top">simpleMerge()</td>
 </tr>
 <tr>
@@ -43,7 +44,7 @@ The code includes five function calls that clean the original dataset in differe
 2) At the time of this function call, if simpleMerge.txt does not exist, this function calls the simpleMerge() function and creates the simpleMerge.txt file.<br>
 3) If the simpleMerge.txt file does exist, however, this function reads the file and replace the variable names (column headings) descriptive variable names.</td>
 <td valign="top">1) features.txt <br> 2) simpleMerge.txt</td>
-<td valign="top">desVarMerge.txt</td>
+<td valign="top">desVarMerge.txt<br> (563 variables) <br> (10299 cases)</td>
 <td valign="top">desVarMerge()</td>
 </tr>
 <tr>
@@ -53,7 +54,7 @@ The code includes five function calls that clean the original dataset in differe
 2) At the time of this function call, if desVarMerge.txt does not exist, this function calls the desVarMerge() function and creates the desVarMerge.txt file.<br>
 3) If the desVarMerge.txt file does exist, however, this function reads the file and replace the values of the activity column from numeric code to descriptive activity types.</td>
 <td valign="top">1) activity_labels.txt <br> 2) desVarMerge.txt</td>
-<td valign="top">desActMerge.txt</td>
+<td valign="top">desActMerge.txt<br> (563 variables) <br> (10299 cases)</td>
 <td valign="top">desActMerge()</td>
 </tr>
 <tr>
@@ -61,8 +62,8 @@ The code includes five function calls that clean the original dataset in differe
 <td valign="top">Extract only the measurments on the mean and standard deviation for each measurement.<br>
 1) At the time of this function call, if desVarMerge.txt does not exist, this function calls the desVarMerge() function and creates the desVarMerge.txt file.<br>
 2) If the desVarMerge.txt file does exist, however, this function reads the file, pattern matches the column names for mean and standard deviation using 'grepl', and subset only the matched columns.</td>
-<td valign="top">desActMerge.txt</td>
-<td valign="top">meanStdMerge.txt</td>
+<td valign="top">1) desActMerge.txt</td>
+<td valign="top">meanStdMerge.txt<br> (57 variables) <br> (10299 cases)</td>
 <td valign="top">meanStdMerge()</td>
 </tr>
 <th valign="top">avgMerge</th>
@@ -70,9 +71,7 @@ The code includes five function calls that clean the original dataset in differe
 1) At the time of this function call, if desVarMerge.txt does not exist, this function calls the desVarMerge() function and creates the desVarMerge.txt file.<br>
 2) If the desVarMerge.txt file does exist, however, this function reads the file, loop through each subject and each activity type, and calculate average value of each variable in the dataset (of course, excluding the subject id and activity type column).</td>
 <td valign="top">1) activity_labels.txt <br> 2) desVarMerge.txt</td>
-<td valign="top">avgMerge.txt</td>
+<td valign="top">avgMerge.txt<br> (563 variables) <br> (10299 cases)</td>
 <td valign="top">avgMerge()</td>
 </tr>
 </table>
-
-
