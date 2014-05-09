@@ -10,13 +10,13 @@ To call the functions in the run_analysis.R script, the data Human Activity Reco
 
 e.g., Within the project folder, the following file structure should be kept:
 - run_analysis.R
-- HCI Har Dataset [data folder]
+- [HCI Har Dataset]
 <dd>-- activity_labels.txt
 <dd>-- feactures_info.txt
 <dd>-- features.txt
 <dd>-- README.txt
-<dd>-- test         [sub folder]
-<dd>-- train        [sub folder]
+<dd>-- [test]         
+<dd>-- [train]       
    
 The compressed dataset can be downloaded from:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip

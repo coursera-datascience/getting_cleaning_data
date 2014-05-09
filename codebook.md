@@ -17,8 +17,8 @@ The original dataset, which was in the form of a compression file, was downloade
 <dd> -- feactures_info.txt </dd>
 <dd> -- features.txt </dd>
 <dd> -- README.txt </dd>
-<dd> -- [test]      (sub-directory folder)  </dd>
-<dd> -- [train]     (sub-directory folder)  </dd>
+<dd> -- [test]      </dd>
+<dd> -- [train]     </dd>
 
 The 'activity_labels.txt' file links the class labels with their activity name.
 The 'features_info.txt' file provides information about the variables used on the feature vector.
@@ -30,12 +30,12 @@ In each sub-directory folder of 'test' and 'train', there are three text files a
 <dd> -- subject_test.txt </dd>
 <dd> -- X_test.txt </dd>
 <dd> -- y_test.txt </dd>
-<dd> -- [Inertial Signals]      (sub_folder) </dd>
+<dd> -- [Inertial Signals]    </dd>
 [train]       
 <dd> -- subject_train.txt </dd>
 <dd> -- X_train.txt </dd>
 <dd> -- y_train.txt </dd>
-<dd> -- [Inertial Signals]      (sub_folder) </dd>
+<dd> -- [Inertial Signals]   </dd>
 
 The 'subject_test.txt' and 'subject_train.txt' files provide information regarding subjects. Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
 The 'X_test.txt' and 'X_train.txt' files contain the test and training set data.
