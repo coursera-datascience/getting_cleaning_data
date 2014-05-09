@@ -21,6 +21,16 @@ e.g., Within the project folder, the following file structure should be kept:
 The compressed dataset can be downloaded from:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
+## Function Call
+
+To obtain the submitted tidy data set, users need to follow the following two steps:
+<ol>
+<li> source the R file: <font color="blue">source("run_analysis.R")</font></li>
+<li> call the avgMerge function: <font color="blue">avgMerge()</font></li>
+</ol>
+Among the generated text files, <font color="blue">avgMerge.txt</font> is the target tidy dataset.<br>
+[Caution: Running the function call can take a couple of minutes.]
+
 ## Functions
 The code includes five function calls that clean the original dataset in different ways:
 
@@ -75,3 +85,4 @@ The code includes five function calls that clean the original dataset in differe
 <td valign="top">avgMerge()</td>
 </tr>
 </table>
+
