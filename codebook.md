@@ -148,7 +148,7 @@ As a part of the data cleaning process (DesVarMerge function), variable names ar
 Additionally, a set of parentheses is replaced by a dot, unless the set is located in the end of the variable name; in that case, parentheses are simply removed. Commas are replaced by a dot as well. All upper case letters are changed to lower case letters. Finally, to indicate that variables other than the subject id and activitytype are the average of each activity and each subject, the prefix of "average" is added to the variable names. The following table lists the variable column location, variable name, and length of variable. 
 <br><br>
 
-Variable Column Location | Variable Name | Class | Length | Description
+Variable Column Location | Variable Name | Class | Length 
 --- | --- | --- | --- | ---
 1         |         subjectid	 |      integer	 |  	1	 
 2         | 	activitytype	 |      factor	 |  	1	
